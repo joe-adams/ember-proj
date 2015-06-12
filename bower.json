@@ -9,8 +9,16 @@
     "ember-qunit": "0.3.3",
     "ember-qunit-notifications": "0.0.7",
     "ember-resolver": "~0.1.15",
-    "jquery": "^1.11.1",
+    "jquery": "2.1.4",
     "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "papaparse": "~4.1.1",
+    "lodash": "^2.4.0",
+    "ic-autocomplete": "~0.2.0",
+    "bootstrap": "~3.3.4",
+    "ic-styled": "~2.0.0",
+    "handlebars": "2.0.0",
+    "moment": "~2.10.3",
+    "TechanJS": "andredumas/techan.js#~0.5.0"
   }
 }
