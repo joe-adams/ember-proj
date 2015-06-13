@@ -4,15 +4,11 @@ export default App.AutoCompleteComponent = Ember.Component.extend({
     classNames: ['auto-complete'],
     createAutoSuggest: function() {
         var element = this.$('[data-role=input-holder]')[0];
-        var auto=this.auto = completely(element, {
+        var auto=this.auto = completeLime(element, {
             fontSize: '1em'
         });
         var stocks=this.get('data').get('stocks');
         this.auto.options = stocks.mapBy('name');
-        var superOnChange = this.auto.onChange;
-        this.auto.onChange = function(txt) {
-            superOnChange.apply(this, arguments);
-        };
         this.$('input').focusout(function(){
             auto.hideDropDown();
         });

@@ -2,17 +2,15 @@ import App from 'ember-proj/app';
 
 export default App.CandlestickComponent = Ember.Component.extend({
     makeChart: function() {
+
+        var chartArray=this.get('chartArray');
+        var maxDate=this.get('maxDate');
+        var minDate=this.get('minDate');
+
         var $el = $('#chart');
         $el.empty();
-        var dataModels = this.get('series');
 
-        var data=dataModels.map(function(model){
-            return [model.get('date'),model.get('open'),model.get('high'),model.get('low'),model.get('close')];
-        });
-
-        var maxDate=data[0][0];
-        var minDate=data[data.length-1][0];
-        $.jqplot('chart', [data], {
+        $.jqplot('chart', [chartArray], {
             seriesDefaults: {
                 yaxis: 'y2axis'
             },
@@ -24,11 +22,11 @@ export default App.CandlestickComponent = Ember.Component.extend({
                     },
                     min: minDate,
                     max: maxDate,
-                    tickInterval: "1 week",
+                    tickInterval: "5 days",
                 },
                 y2axis: {
                     tickOptions: {
-                        formatString: '$%d'
+                        formatString: '$%.2f'
                     }
                 }
             },

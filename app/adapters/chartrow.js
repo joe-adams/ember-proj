@@ -25,8 +25,7 @@ var makeUrl = function(id) {
 export default DS.Adapter.extend({
     findQuery: function(store, type, id, snapshot) {
 
-        var url = makeUrl(id.symbol);
-        console.log(url);
+        var url = makeUrl(id);
         return new Ember.RSVP.Promise(function(resolve, reject) {
             Papa.parse(url, {
                 download: true,
@@ -41,7 +40,6 @@ export default DS.Adapter.extend({
                 },
                 complete: function(results) {
                     var data=results.data;
-                    console.log(JSON.stringify(data));
                     var correctedData=data.map(function(dataRow){
                         var date=moment(dataRow.Date,'YYYY-MM-DD');
                         var formattedDate=date.format('MM/DD/YYYY HH:mm:ss');

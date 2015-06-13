@@ -13,7 +13,7 @@
 				    	<tr><th>Name</th><th>Symbol</th></tr>
 				    	<tbody>
 						    {{#each model.matches as |match|}}
-						    	<tr {{action 'chart' match.symbol}}><td>{{match.name}}</td><td>{{match.symbol}}</td></tr>
+						    	<tr {{action 'chart' match}}><td>{{match.name}}</td><td>{{match.symbol}}</td></tr>
 						    {{/each}}
 				    	</tbody>	
 					</table>

@@ -4,20 +4,17 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
 
-//app.import('bower_components/papaparse/papaparse.js');
 app.import('vendor/complete.ly.1.0.1.js');
+app.import('vendor/complete.lime.js');
 app.import('vendor/papaparse_see_comment.js');
 app.import('bower_components/lodash/dist/lodash.js');
 app.import('bower_components/moment/moment.js');
-
-//app.import('bower_components/d3/d3.js');
-//app.import('bower_components/TechanJS/dist/techan.js');
 
 app.import('vendor/jqplot/jquery.jqplot.js');
 app.import('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
 app.import('vendor/jqplot/plugins/jqplot.ohlcRenderer.js');
 app.import('vendor/jqplot/plugins/jqplot.highlighter.js');
-
+app.import('vendor/jqplot/jquery.jqplot.css');
 
 //Add Bootstrap glyphicons.  Not used, but if developers expect Bootstrap, then I figure they should be here.
 app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot', {
