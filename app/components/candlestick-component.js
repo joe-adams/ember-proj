@@ -2,9 +2,11 @@ import App from 'ember-proj/app';
 
 export default App.CandlestickComponent = Ember.Component.extend({
     makeChart: function() {
-        var chartArray=this.get('chartArray');
-        var maxDate=this.get('maxDate');
-        var minDate=this.get('minDate');
+        debugger;
+        var model=this.get('model');
+        var chartArray=model.get('chartArray');
+        var maxDate=model.get('maxDate');
+        var minDate=model.get('minDate');
 
 
         var $el = $('#chart');
@@ -52,5 +54,5 @@ export default App.CandlestickComponent = Ember.Component.extend({
         });
     //I tried just having it observe the properties it consumed in the above method, 
     //but it didn't work probably because they aren't observable.
-    }.on('didInsertElement','parentViewDidChange').observes('chartRows')
+    }.on('didInsertElement','parentViewDidChange').observes('model')
 });
