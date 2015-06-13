@@ -1,7 +1,7 @@
-{{debugger}}
+<div class='row'>
+	<h3>Stock Name: {{model.name}} Symbol: {{model.symbol}}</h3>
+</div>
+<div class='row'>
+	{{candlestick-component  chartRows=chartRows chartArray=chartArray minDate=minDate maxDate=maxDate}}
+</div>
 
-This: {{this}}
-Model: {{model}}
-chartArray: {{chartArray}}
-
-{{candlestick-component chartArray=chartArray minDate=minDate maxDate=maxDate}}
