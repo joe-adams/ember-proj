@@ -24,7 +24,7 @@ export default App.CandlestickComponent = Ember.Component.extend({
                 },
                 y2axis: {
                     tickOptions: {
-                        formatString: '$%.2f%'
+                        formatString: '$%.2f'
                     }
                 }
             },
