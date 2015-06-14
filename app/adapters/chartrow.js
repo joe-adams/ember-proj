@@ -22,11 +22,9 @@ var makeUrl = function(id) {
     return 'table.csv?s=' + encodedId + '&a=' + startMonth + '&b=' + startDay + '&c=' + startYear + '&d=' + endMonth + '&e=' + endDay + '&f=' + endYear + '&g=d&ignore.csv';
 };
 
+var finder=function(store, type, id, snapshot) {
 
-export default DS.Adapter.extend({
-    findQuery: function(store, type, id, snapshot) {
-
-        var url = makeUrl(id.id);
+        var url = makeUrl(id);
         return new Ember.RSVP.Promise(function(resolve, reject) {
             Papa.parse(url, {
                 download: true,
@@ -58,4 +56,9 @@ export default DS.Adapter.extend({
             });
         });
     }
+
+//Ember wants either findQuery or find, seemingly at random.
+export default DS.Adapter.extend({
+    findQuery: finder,
+    find:finder
 });

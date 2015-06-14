@@ -1,9 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    actions:{
-        chart:function(stock){
-            this.transitionToRoute('chart',stock);
-        }
-    }
+	search:function(){
+		var search=this.model.get('search');
+		if (search){
+			this.transitionToRoute('resultset',search);
+		}
+	}.observes('model.search')
 });

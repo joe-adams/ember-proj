@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     model: function() {
     	return this.store.findAll('stock').then(function(stocks){
-    		return this.store.createRecord('application',{stocks:stocks});
+    		return this.store.createRecord('application',{stocks:stocks,search:''});
     	}.bind(this));
     }
 });
