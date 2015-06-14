@@ -1,7 +1,9 @@
 <div class='row'>
-	<h3>Stock Name: {{model.name}} Symbol: {{model.symbol}}</h3>
+	<div class="col-md-offset-1">
+		<h3>Stock Name: {{model.stock.name}} Symbol: {{model.stock.symbol}}</h3>
+	</div>
 </div>
 <div class='row'>
-	{{candlestick-component  series=model}}
+		{{candlestick-component  series=model}}
 </div>
 

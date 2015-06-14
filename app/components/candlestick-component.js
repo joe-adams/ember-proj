@@ -1,28 +1,14 @@
 import App from 'ember-proj/app';
 
 export default App.CandlestickComponent = Ember.Component.extend({
-    getChartData:function(){
-        //I don't like doing all this here, but I ran into roadblocks with all alternatives.
-        //I assume that the data will be continue to served by Yahoo in descending date order.
-        //We could think about sorting the rows, if we don't trust that assumption.
-        var chartrows=this.get('series').get('chartrows');
-        var minDate=chartrows.get('lastObject').get('date');
-        var maxDate=chartrows.get('firstObject').get('date');
-        var chartArray=chartrows.map(function(row){
-            return [row.get('date'),row.get('open'),row.get('high'),row.get('low'),row.get('close')];
-        }).toArray();
-        return {minDate:minDate,maxDate:maxDate,chartArray:chartArray};
-    },
     makeChart: function() {
-        var chartData=this.getChartData();
-        var data=chartData.chartArray;
-        var maxDate=chartData.maxDate;
-        var minDate=chartData.minDate;
-
+        var chartArray=this.get('series').get('chartArray');
+        var maxDate=this.get('series').get('maxDate');
+        var minDate=this.get('series').get('minDate');
 
         var $el = $('#chart');
         $el.empty();
-        $.jqplot('chart', [data], {
+        $.jqplot('chart', [chartArray], {
             seriesDefaults: {
                 yaxis: 'y2axis'
             },

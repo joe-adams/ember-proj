@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(id) {
-        var stockModel = this.store.getById('stock', id.id);
-        var result = stockModel.toJSON();
+        var stock = this.store.getById('stock', id.id);
         return this.store.find('chartrow', id).then(function(chartrows) {
-            result.chartrows=chartrows;
-            var record= this.store.createRecord('chart', result);
+            var obj={id:stock.get('id'),stock:stock,chartrows:chartrows};
+            var record= this.store.createRecord('chart', obj);
             return record;
         }.bind(this));
     }
