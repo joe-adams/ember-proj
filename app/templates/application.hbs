@@ -12,7 +12,9 @@
 				    	<tr><th>Name</th><th>Symbol</th></tr>
 				    	<tbody>
 						    {{#each  model.resultSet.stocks as |stock|}}
-						    	<tr {{action 'chart' stock.id}}><td>{{stock.name}}</td><td>{{stock.symbol}}</td></tr>
+						    	{{#link-to 'chart' stock.id tagName="tr"}}
+						    		<td>{{stock.name}}</td><td>{{stock.symbol}}</td>
+						    	{{/link-to}}
 						    {{/each}}
 				    	</tbody>	
 					</table>
