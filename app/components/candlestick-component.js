@@ -10,15 +10,14 @@ export default App.CandlestickComponent = Ember.Component.extend({
         var maxDate=chartrows.get('firstObject').get('date');
         var chartArray=chartrows.map(function(row){
             return [row.get('date'),row.get('open'),row.get('high'),row.get('low'),row.get('close')];
-        });
+        }).toArray();
         return {minDate:minDate,maxDate:maxDate,chartArray:chartArray};
     },
     makeChart: function() {
-        debugger;
         var chartData=this.getChartData();
         var data=chartData.chartArray;
-        var maxDate=chartData.minDate;
-        var minDate=chartData.maxDate;
+        var maxDate=chartData.maxDate;
+        var minDate=chartData.minDate;
 
 
         var $el = $('#chart');
@@ -35,11 +34,11 @@ export default App.CandlestickComponent = Ember.Component.extend({
                     },
                     min: minDate,
                     max: maxDate,
-                    tickInterval: "1 week",
+                    tickInterval: "5 days",
                 },
                 y2axis: {
                     tickOptions: {
-                        formatString: '$%d'
+                        formatString: '$%.2f%'
                     }
                 }
             },
