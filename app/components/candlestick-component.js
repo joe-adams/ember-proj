@@ -15,20 +15,15 @@ export default App.CandlestickComponent = Ember.Component.extend({
     },
     makeChart: function() {
         debugger;
-        var chartrows=this.get('series').get('chartrows');
-        if (!chartrows){
-            return;
-        }
         var chartData=this.getChartData();
-        var chartArray=chartData.chartArray;
+        var data=chartData.chartArray;
         var maxDate=chartData.minDate;
         var minDate=chartData.maxDate;
 
 
         var $el = $('#chart');
         $el.empty();
-
-        $.jqplot('chart', [chartArray], {
+        $.jqplot('chart', [data], {
             seriesDefaults: {
                 yaxis: 'y2axis'
             },
@@ -40,11 +35,11 @@ export default App.CandlestickComponent = Ember.Component.extend({
                     },
                     min: minDate,
                     max: maxDate,
-                    tickInterval: "5 days",
+                    tickInterval: "1 week",
                 },
                 y2axis: {
                     tickOptions: {
-                        formatString: '$%.2f'
+                        formatString: '$%d'
                     }
                 }
             },
