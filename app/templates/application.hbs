@@ -7,12 +7,12 @@
      <div class='container-fluid'>
     	<div class='row'>
     		<div class="col-md-4 col-md-offset-1 table-responsive">
-			    {{#if model.matches.length}}
+			    {{#if model.resultSet.stocks.length}}
 			    	<table class='table-striped'>
 				    	<tr><th>Name</th><th>Symbol</th></tr>
 				    	<tbody>
-						    {{#each model.matches as |match|}}
-						    	<tr {{action 'chart' match.id}}><td>{{match.name}}</td><td>{{match.symbol}}</td></tr>
+						    {{#each  model.resultSet.stocks as |stock|}}
+						    	<tr {{action 'chart' stock.id}}><td>{{stock.name}}</td><td>{{stock.symbol}}</td></tr>
 						    {{/each}}
 				    	</tbody>	
 					</table>
