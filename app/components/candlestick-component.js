@@ -5,7 +5,7 @@ export default App.CandlestickComponent = Ember.Component.extend({
         //I don't like doing all this here, but I ran into roadblocks with all alternatives.
         //I assume that the data will be continue to served by Yahoo in descending date order.
         //We could think about sorting the rows, if we don't trust that assumption.
-        var chartrows=this.get('chartrows');
+        var chartrows=this.get('model').get('chartrows');
         var minDate=chartrows.get('lastObject').get('date');
         var maxDate=chartrows.get('firstObject').get('date');
         var chartArray=chartrows.map(function(row){
@@ -66,5 +66,5 @@ export default App.CandlestickComponent = Ember.Component.extend({
         });
     //I tried just having it observe the properties it consumed in the above method, 
     //but it didn't work probably because they aren't observable.
-    }.on('didInsertElement','parentViewDidChange').observes('chartrows')
+    }.on('didInsertElement','parentViewDidChange').observes('model')
 });
