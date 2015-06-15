@@ -2,7 +2,12 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "moment",
+    "Papa",
+    "_",
+    "Promise",
+    "completeLime"
   ],
   "browser": true,
   "boss": true,
@@ -28,5 +33,5 @@
   "white": false,
   "eqnull": true,
   "esnext": true,
-  "unused": true
+  "unused": "vars"
 }

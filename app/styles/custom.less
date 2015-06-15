@@ -12,13 +12,27 @@
 	.form-control() !important;
 }
 
-td{
-	word-wrap:break-word;
+.table-container{
+    .table-responsive;
+    table{
+        .table-striped;
+        width:90%;
+        table-layout: fixed;
+        tr{
+            cursor:pointer;
+        }
+        td{
+            word-wrap:break-word;
+        }
+        th:nth-child(1){
+            width:10%
+        }
+        th:nth-child(2){
+            width:90%
+        }
+    }
 }
 
-.table-striped{
-	width:90%;
-}
 
 .axis path,
 .axis line {
@@ -27,28 +41,24 @@ td{
     shape-rendering: crispEdges;
 }
 
+
 path.candle {
     stroke: #000000;
+
+    .body {
+        stroke-width: 0;
+    }
+    .up {
+        fill: #00AA00;
+        stroke: #00AA00;
+    }
+    .down {
+        fill: #FF0000;
+        stroke: #FF0000;
+    }
 }
 
-path.candle.body {
-    stroke-width: 0;
-}
-
-path.candle.up {
-    fill: #00AA00;
-    stroke: #00AA00;
-}
-
-path.candle.down {
-    fill: #FF0000;
-    stroke: #FF0000;
-}
 
 .make-room-for-tooltip{
     padding-left:15%
-}
-
-.table-responsive tr{
-    cursor:pointer;
 }

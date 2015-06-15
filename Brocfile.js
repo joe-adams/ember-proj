@@ -4,8 +4,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
 
-app.import('vendor/complete.ly.1.0.1.js');
-app.import('vendor/complete.lime.js');
+app.import('vendor/complete.lime.modified.js');
 app.import('vendor/papaparse_see_comment.js');
 app.import('bower_components/lodash/dist/lodash.js');
 app.import('bower_components/moment/moment.js');

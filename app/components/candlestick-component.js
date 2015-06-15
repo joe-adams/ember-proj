@@ -1,10 +1,22 @@
 import App from 'ember-proj/app';
+import Ember from 'ember';
+
+var $=Ember.$;
 
 export default App.CandlestickComponent = Ember.Component.extend({
     makeChart: function() {
-        var chartArray=this.get('series').get('chartArray');
-        var maxDate=this.get('series').get('maxDate');
-        var minDate=this.get('series').get('minDate');
+        var chartArray = this.get('series').get('chartArray');
+        var maxDate = this.get('series').get('maxDate');
+        var minDate = this.get('series').get('minDate');
+        //Ironically, I'm not finding anything about explicitly calling Handlebars in your code.
+        var formatString = '<table class="jqplot-highlighter">';
+        formatString += '<tr><td>date:</td><td>%s</td></tr>';
+        formatString += '<tr><td>open:</td><td>%s</td></tr>';
+        formatString += '<tr><td>hi:</td><td>%s</td></tr>';
+        formatString += '<tr><td>low:</td><td>%s</td></tr>';
+        formatString += '<tr><td>close:</td><td>%s</td></tr></table>';
+
+
 
         var $el = $('#chart');
         $el.empty();
@@ -40,15 +52,10 @@ export default App.CandlestickComponent = Ember.Component.extend({
                 showMarker: false,
                 tooltipAxes: 'xy',
                 yvalues: 4,
-                formatString: '<table class="jqplot-highlighter"> \
-      <tr><td>date:</td><td>%s</td></tr> \
-      <tr><td>open:</td><td>%s</td></tr> \
-      <tr><td>hi:</td><td>%s</td></tr> \
-      <tr><td>low:</td><td>%s</td></tr> \
-      <tr><td>close:</td><td>%s</td></tr></table>'
+                formatString:formatString
             }
         });
-    //I tried just having it observe the properties it consumed in the above method, 
-    //but it didn't work probably because they aren't observable.
-    }.on('didInsertElement','parentViewDidChange').observes('series')
+        //I tried just having it observe the properties it consumed in the above method, 
+        //but it didn't work probably because they aren't observable.
+    }.on('didInsertElement', 'parentViewDidChange').observes('series')
 });

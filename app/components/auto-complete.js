@@ -1,4 +1,5 @@
 import App from 'ember-proj/app';
+import Ember from 'ember';
 
 export default App.AutoCompleteComponent = Ember.Component.extend({
     classNames: ['auto-complete'],

@@ -37,16 +37,20 @@ export default DS.Adapter.extend({
                 var all = _.flatten(results).sort(function(a, b) {
                     var nameA = a.name.toLowerCase();
                     var nameB = b.name.toLowerCase();
-                    if (nameA < nameB)
+                    if (nameA < nameB){
                         return -1;
-                    if (nameA > nameB)
+                    }
+                    if (nameA > nameB){
                         return 1;
+                    }
                     var symbolA = a.symbol;
                     var symbolB = b.symbol;
-                    if (symbolA < symbolB)
+                    if (symbolA < symbolB){
                         return -1;
-                    if (symbolA > symbolB)
+                    }
+                    if (symbolA > symbolB){
                         return 1;
+                    }
                     return 0;
                 });
                 Ember.run(null, resolve, all);

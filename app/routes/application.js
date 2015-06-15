@@ -1,4 +1,3 @@
-//import Adapter from 'ember-proj/adapters/stock';
 import Ember from 'ember';
 
 export default Ember.Route.extend({

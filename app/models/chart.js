@@ -12,6 +12,6 @@ export default DS.Model.extend({
     chartArray: function() {
         return this.get('chartrows').map(function(row) {
             return [row.get('date'), row.get('open'), row.get('high'), row.get('low'), row.get('close')];
-        })
+        });
     }.property('chartrow')
 });

@@ -1,8 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
-var $ = Ember.$;
-
 //How to make the url: https://code.google.com/p/yahoo-finance-managed/wiki/csvHistQuotesDownload
 //http://momentjs.com/docs/#/get-set/
 //http://momentjs.com/docs/#/manipulating/
@@ -52,7 +50,7 @@ export default DS.Adapter.extend({
                             high: dataRow.High,
                             low: dataRow.Low,
                             close: dataRow.Close
-                        }
+                        };
                     });
                     Ember.run(null, resolve, correctedData);
                 }
