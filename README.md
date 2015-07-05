@@ -1,8 +1,8 @@
-# Ember-proj
+# stock-lookup-and-chart-ember
 
 This is a pretty standard Ember app, but you must use the Proxy server, also in this Github account to get the data from Yahoo.  The proxy server has one program for proxying to the Ember development server and another for serving files of a pre-built one.  Using the Apache httpd server is another option.
 
-You can search for stocks.  You have to explicitly hit the search button since the keys operate the autocomplete.  However, you can tab over and hit enter.  You can click on a stock in the display table and it will fetch the data and display a chart.  It makes an explicit URL for the stock you are doing a chart for.  I didn't figure out nested URL's yet.
+You can search for stocks.  You have to explicitly hit the search button since the keys operate the autocomplete.  However, you can tab over and hit enter.  You can click on a stock in the display table and it will fetch the data and display a chart.  It makes an explicit URL for the stock you are doing a chart for.
 
 ## Prerequisites
 
